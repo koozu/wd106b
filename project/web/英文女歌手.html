@@ -1,0 +1,71 @@
+<head>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body style="background-color: cornsilk">
+<div id="container" style="width: 80%;height: auto;margin-left: 10%;margin-right: 10%;"></div>
+<script language="JavaScript">
+$(document).ready(function() {  
+    var chart = {
+        type: 'column'
+    };
+    var title = {
+        text: '點閱率,喜歡及不喜歡'   
+    };
+    var subtitle = {
+        text: 'Source: youtube.com.tw'  
+    };
+    var xAxis = {
+        categories: ["點閱率","喜歡","不喜歡"],
+        crosshair: true
+    };
+    var yAxis = {
+        min: 0,
+        title: {
+            text: 'times'         
+        }      
+    };
+    var tooltip = {
+        headerFormat: '<span style="font-size:1px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} 次</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    };
+    var plotOptions = {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    };  
+    var credits = {
+        enabled: false
+    };
+    
+    var series= [{
+        name: 'Shake it off',
+            data: [2576924787,7470000,850000]
+        }, {
+            name: 'roar',
+            data: [2534350196,8120000,670000]
+        }, {
+            name: 'hello',
+            data: [2346326489,13320000,740000]
+        }];
+        
+    var json = {};   
+    json.chart = chart; 
+    json.title = title;   
+    json.subtitle = subtitle; 
+    json.tooltip = tooltip;
+    json.xAxis = xAxis;
+    json.yAxis = yAxis;  
+    json.series = series;
+    json.plotOptions = plotOptions;  
+    json.credits = credits;
+    $('#container').highcharts(json);
+    
+});
+</script>
+</body>

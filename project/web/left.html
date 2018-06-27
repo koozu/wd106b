@@ -1,0 +1,74 @@
+<head>
+<style>
+    .dropdown{background-color: #ffbbff;}
+    .firstdropdown-content{display: none;}
+    .seconddropdown-content{display: none;}
+    .dropdown:hover .firstdropdown-content{display:table;}
+    .firstdropdown-content:hover .seconddropdown-content{display: block;}
+    a{text-decoration: none;}
+    a:link{color:black;}
+    a:visited{color: black;}
+    a:hover{color: white;}
+    a:active{color:red;}
+    h2{text-align: center;}
+    h4{text-align: left;}
+</style>
+</head>
+<body bgcolor=#ffccff>
+<div class="dropdown">
+    <h2>男歌手</h2>
+    <div class="firstdropdown-content">
+        <h4><ul>周杰倫</ul></h4>
+        <div class="seconddropdown-content">
+            <h5>
+                <a href="稻香.html" target="right">稻香</a></br>
+                <a href="七里香.html" target="right">七里香</a></br>
+                <a href="告白氣球.html" target="right">告白氣球</a></br>
+            </h5>
+        </div>
+    </div>
+    <div class="firstdropdown-content">
+        <h4><ul>林俊傑</ul></h4>
+        <div class="seconddropdown-content">
+            <h5>
+                <a href="不為誰而做的歌.html" target="right">不為誰而作的歌</a>
+            </h5>
+        </div>
+    </div>
+</div>
+<div class="dropdown">
+    <h2>女歌手</h2>
+    <div class="firstdropdown-content">
+        <h4><ul>張惠妹</ul></h4>
+        <div class="seconddropdown-content">
+            <h5>
+                <a href="連名帶姓.html" target="right">連名帶姓</a></br>
+                <a href="如果你也聽說.html" target="right">如果你也聽說</a></br>
+            </h5>
+        </div>
+    </div>
+</div>    
+<div class="dropdown">
+    <h2>排行榜</h2>
+    <div id="leaderboard" class="firstdropdown-content">
+        語言 :</br>
+        <input type="radio" name="language" checked="checked" value="中文"/>中文
+        <input type="radio" name="language" value="英文"/>英文</br>
+        性別 :</br>
+        <input type="radio" name="sex" checked="checked" value="男生"/>男生
+        <input type="radio" name="sex" value="女生"/>女生</br>
+        <input type="button" value="搜尋" onclick="search()"/>
+    </div>
+</div>      
+</body>
+<script>
+function search()
+{
+    var language=document.getElementsByName("language");
+    var sex=document.getElementsByName("sex");
+    if(language[0].checked&&sex[0].checked) window.open("中文男歌手.html","right");
+    else if(language[0].checked&&sex[1].checked) window.open("中文女歌手.html","right");
+    else if(language[1].checked&&sex[0].checked) window.open("英文男歌手.html","right");
+    else if(language[1].checked&&sex[1].checked) window.open("英文女歌手.html","right");
+}
+</script>
